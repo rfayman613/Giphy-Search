@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Fetch</title>
+</head>
+<body>
+    <script>
+        fetch('https://api.giphy.com/v1/gifs/search?api_key=gVK1MNTvzBXqzVZw6CD09TYoMENcaNFW&q=spongebob&limit=3')
+        .then(response => response.json())
+        .then(giphyData => {
+            // console.log(imgReply)
+            createGiphy(giphyData)
+        });
+
+      function createGiphy(giphyData) {
+        giphyData.data.forEach(img => {
+              console.log(img.images.original.url)
+              giphyVar = img.images.original.url
+              
+              giphyImg = document.createElement('IMG')
+              giphyImg.setAttribute('src', giphyVar)
+              document.body.appendChild(giphyImg)
+              
+
+            
+            
+          });
+
+      }
+
+
+    </script>
+</body>
+</html>
